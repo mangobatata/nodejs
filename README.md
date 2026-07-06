@@ -1,4 +1,4 @@
-<a href="https://nuxt.com"><img width="830" height="213" src="https://github.com/nuxt/nuxt/raw/main/.github/assets/banner.svg" alt="Nuxt banner"></a>
+<a href="https://nuxt.com"><img width="830" height="213" src="./.github/assets/banner.svg" alt="Nuxt banner"></a>
 
 # Nuxt
 
@@ -111,7 +111,7 @@ Follow the docs to [Set Up Your Local Development Environment](https://nuxt.com/
 ## <a name="follow-us">🔗 Follow Us</a>
 
 <p valign="center">
-  <a href="https://go.nuxt.com/discord"><img width="20" src="https://github.com/nuxt/nuxt/raw/main/.github/assets/discord.svg" alt="Discord"></a>&nbsp;&nbsp;<a href="https://go.nuxt.com/x"><img width="20" src="https://github.com/nuxt/nuxt/raw/main/.github/assets/twitter.svg" alt="Twitter"></a>&nbsp;&nbsp;<a href="https://go.nuxt.com/github"><img width="20" src="https://github.com/nuxt/nuxt/raw/main/.github/assets/github.svg" alt="GitHub"></a>&nbsp;&nbsp;<a href="https://go.nuxt.com/bluesky"><img width="20" src="https://github.com/nuxt/nuxt/raw/main/.github/assets/bluesky.svg" alt="Bluesky"></a>
+  <a href="https://go.nuxt.com/discord"><img width="20" src="./.github/assets/discord.svg" alt="Discord"></a>&nbsp;&nbsp;<a href="https://go.nuxt.com/x"><img width="20" src="./.github/assets/twitter.svg" alt="Twitter"></a>&nbsp;&nbsp;<a href="https://go.nuxt.com/github"><img width="20" src="./.github/assets/github.svg" alt="GitHub"></a>&nbsp;&nbsp;<a href="https://go.nuxt.com/bluesky"><img width="20" src="./.github/assets/bluesky.svg" alt="Bluesky"></a>
 </p>
 
 ## <a name="license">⚖️ License</a>
