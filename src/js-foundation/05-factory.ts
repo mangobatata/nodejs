@@ -1,10 +1,21 @@
 // const { getUUID } = require('../plugins/get-id.plugin');
 // const { getAge } = require('../plugins/get-age.plugin');
 // const { getAge, getUUID } = require('../plugins');
+interface BuildMakerPersonOptions {
+  getUUID: () => string;
+  getAge: (birthdate: string) => number;
+}
 
-// Factory es una Funcion que crea una funcion que regresa un objeto
-const buildMakePerson = ({ getUUID, getAge }) => {
-  return ({ name, birthdate }) => {
+interface PersonOptions {
+  name: string;
+  birthdate: string;
+}
+
+export const buildMakePerson = ({
+  getAge,
+  getUUID,
+}: BuildMakerPersonOptions) => {
+  return ({ name, birthdate }: PersonOptions) => {
     return {
       id: getUUID(),
       name: name,
@@ -19,7 +30,3 @@ const buildMakePerson = ({ getUUID, getAge }) => {
 // const john = buildPerson( obj );
 
 // console.log(john);
-
-module.exports = {
-  buildMakePerson,
-};
