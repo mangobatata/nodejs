@@ -13,6 +13,7 @@
 
     /* Interoperabilidad y Restricciones */
     "esModuleInterop": true,                             /* Resuelve el error 'Cannot find name fs' permitiendo imports directos */
+    "types": ["node"],                                  /* Expone los tipos globales de Node como process y fs */
     "forceConsistentCasingInFileNames": true,            /* Evita fallos si trabajas entre sistemas como Windows y Linux */
 
     /* Verificación de Tipos */
