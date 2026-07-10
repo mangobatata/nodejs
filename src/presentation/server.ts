@@ -6,7 +6,7 @@ export class ServerApp {
     console.log("Server is starting...");
 
     CronService.createJob("*/5 * * * * *", () => {
-      const url = "https://buscatienda.com.py";
+      const url = "https://google.com";
       new CheckService(
         () => console.log(`Checking status of ${url}... is ok`),
         (error) => console.log(error),
