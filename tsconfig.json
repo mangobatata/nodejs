@@ -1,24 +1,25 @@
 {
   "compilerOptions": {
     /* Lenguaje y Entorno */
-    "target": "ES2022",                                  /* Versión moderna de JS compatible con Node v24 */
+    "target": "ES2022" /* Versión moderna de JS compatible con Node v24 */,
 
     /* Módulos y Resolución */
-    "module": "NodeNext",                                /* El estándar actual para que Node entienda imports nativos */
-    "moduleResolution": "NodeNext",                      /* Obligatorio junto con module NodeNext */
-    "rootDir": "src",                                    /* Carpeta raíz de tu código fuente */
-    
+    "module": "NodeNext" /* El estándar actual para que Node entienda imports nativos */,
+    "moduleResolution": "NodeNext" /* Obligatorio junto con module NodeNext */,
+    "rootDir": "src" /* Carpeta raíz de tu código fuente */,
+
     /* Emitir código */
-    "outDir": "dist",                                    /* Destino de la compilación a producción */
+    "outDir": "dist" /* Destino de la compilación a producción */,
 
     /* Interoperabilidad y Restricciones */
-    "esModuleInterop": true,                             /* Resuelve el error 'Cannot find name fs' permitiendo imports directos */
-    "types": ["node"],                                  /* Expone los tipos globales de Node como process y fs */
-    "forceConsistentCasingInFileNames": true,            /* Evita fallos si trabajas entre sistemas como Windows y Linux */
+    "esModuleInterop": true /* Resuelve el error 'Cannot find name fs' permitiendo imports directos */,
+    "types": ["node"] /* Expone los tipos globales de Node como process y fs */,
+    "forceConsistentCasingInFileNames": true /* Evita fallos si trabajas entre sistemas como Windows y Linux */,
 
     /* Verificación de Tipos */
-    "strict": true,                                      /* Activa todas las validaciones estrictas recomendadas por Fernando Herrera */
-    "skipLibCheck": true                                 /* Omite revisar los archivos .d.ts internos para acelerar la ejecución */
+    "strict": true /* Activa todas las validaciones estrictas recomendadas por Fernando Herrera */,
+    "skipLibCheck": true /* Omite revisar los archivos .d.ts internos para acelerar la ejecución */
   },
-  "include": ["src/**/*"]                                /* Indica explícitamente qué archivos compilar */
+  "exclude": ["node_modules", "dist"],
+  "include": ["src/**/*"] /* Indica explícitamente qué archivos compilar */
 }
