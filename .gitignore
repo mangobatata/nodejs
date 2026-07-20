@@ -7,3 +7,5 @@ dist/
 outputs/
 logs/
 mongo/
+postgres/
+/generated/prisma

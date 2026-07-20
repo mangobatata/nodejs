@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum SeverityLevel {
+  LOW
+  MEDIUM
+  HIGH
+}
+
+model LogModel {
+  id        Int           @id @default(autoincrement())
+  message   String
+  origin    String
+  level     SeverityLevel
+  createdAt DateTime      @default(now())
+}
