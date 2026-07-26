@@ -9,3 +9,4 @@ logs/
 mongo/
 postgres/
 /generated/prisma
+keys/
