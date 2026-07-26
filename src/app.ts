@@ -1,22 +1,15 @@
-import { envs } from "./config/plugins/envs.plugin";
-import { MongoDatabase } from "./data/mongo";
+import { envs } from "./config/envs";
+import { Server } from "./presentation/server";
 
-import { ServerApp } from "./presentation/server";
-
-// Funcion anonima autoejecutable
 (async () => {
   main();
 })();
 
-async function main() {
-  await MongoDatabase.connect({
-    mongoUrl: envs.MONGO_URL,
-    dbName: envs.MONGO_DB_NAME,
+function main() {
+  const server = new Server({
+    port: envs.PORT,
+    public_path: envs.PUBLIC_PATH,
   });
 
- 
-
-  await ServerApp.start();
-  // console.log(envs);
-  // console.log(newLog);
+  server.start();
 }

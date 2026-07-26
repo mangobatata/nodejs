@@ -1,48 +1,39 @@
-import { FileSystemDatasource } from "../infrastructure/datasources/file-system.datasource";
-import { MongoLogDatasource } from "../infrastructure/datasources/mongo-log.datasource";
-import { PostgresLogDatasource } from "../infrastructure/datasources/postgres-log.datasource";
-import { LogRepositoryImpl } from "../infrastructure/repositories/log.repository.impl";
-import { CronService } from "./cron/cron-service";
-import { EmailService } from "./email/email.service";
+import express from "express";
+import path from "path";
 
-const fsLogRepository = new LogRepositoryImpl(new FileSystemDatasource());
-const mongoLogRepository = new LogRepositoryImpl(new MongoLogDatasource());
-const postgresLogRepository = new LogRepositoryImpl(
-  new PostgresLogDatasource(),
-);
+interface Options {
+  port: number;
+  public_path?: string;
+}
 
-const emailService = new EmailService();
+export class Server {
+  private app = express();
+  private readonly port: number;
+  private readonly publicPath: string;
 
-export class ServerApp {
-  public static async start() {
-    console.log("Server started...");
+  constructor(options: Options) {
+    const { port, public_path = "public" } = options;
+    this.port = port;
+    this.publicPath = public_path;
+  }
 
-    //todo: Mandar email
-    // new SendEmailLogs(
-    //   emailService,
-    //   fileSystemLogRepository,
-    // ).execute(
-    //   ['fernando.herrera85@gmail.com','fernando.herrera.cr@gmail.com']
-    // )
-    // emailService.sendEmailWithFileSystemLogs(
-    //   ['fernando.herrera85@gmail.com','fernando.herrera.cr@gmail.com']
-    // );
+  async start() {
+    //* Middlewares
 
-    // const logs = await logRepository.getLogs(LogSeverityLevel.low);
-    // console.log(logs);
+    //* Public Folder
+    this.app.use(express.static(this.publicPath));
 
-    // CronService.createJob(
-    //   '*/5 * * * * *',
-    //   () => {
-    //     const url = 'https://google.com';
+    // Express 5 requires wildcard routes to give the wildcard a name.
+    // The braces also match the site root (`/`) for SPA fallback routing.
+    this.app.get("/{*splat}", (req, res) => {
+      const indexPath = path.join(
+        __dirname + `../../../${this.publicPath}/index.html`,
+      );
+      res.sendFile(indexPath);
+    });
 
-    //     new CheckServiceMultiple(
-    //       [ fsLogRepository, postgresLogRepository, mongoLogRepository ],
-    //       () => console.log( `${ url } is ok` ),
-    //       ( error ) => console.log( error ),
-    //     ).execute( url );
-
-    //   }
-    // );
+    this.app.listen(this.port, () => {
+      console.log(`Server running on port ${this.port}`);
+    });
   }
 }
